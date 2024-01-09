@@ -1,6 +1,6 @@
 {
   "private": true,
-  "license": "MIT",
+  "license": "unlicensed",
   "scripts": {
     "dev": "next",
     "build": "node ./scripts/gen-rss.js && next build",
