@@ -1,9 +1,9 @@
 ---
-title: Next.js Pages
+title: Pages
 date: 2021/3/18
 description: Learn more about Next.js pages.
 tag: web development
-author: Eleazar Hernandez
+author: Nextra
 ---
 
 # Next.js Pages

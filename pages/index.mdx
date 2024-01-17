@@ -2,15 +2,24 @@
 type: page
 title: About
 date: 2021-03-19
+featuredImage: public/images/headshot.jpg
 ---
+import Image from "next/image";
 
+<Image src={'/images/headshot.jpg'}
+       alt={'headshot'}
+       priority
+       width={300}
+       height={300}
+       className="headshot-image"
+/>
 Hello! I'm a freelance software engineer looking to break into my first full time role.
 I have 2 years in full stack web development experience creating cool web applications
 in the tech, retail, and legal space. My current interests are data, backend systems,
 and working in the cloud.
 
 ---
-Click on **projects** to see some of my work and **posts** to see some of my writing
+Click on [projects](/projects) to see some of my work and [posts](/posts) to see some of my writing
 
 ---
 
