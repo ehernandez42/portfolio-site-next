@@ -32,12 +32,6 @@ export async function sendEmail(prevState: any | undefined, formData: FormData) 
         console.log(data)
         return {
             message: "Thanks for reaching out. I'll respond shortly.",
-            errors: undefined,
-            fieldValues: {
-                name: '',
-                email: '',
-                message: '',
-            }
         }
 
 
