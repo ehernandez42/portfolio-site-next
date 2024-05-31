@@ -25,10 +25,10 @@ const info: PersonalInfo = {
     testimonials: [selmaQuote]
 }
 
-const exampleProjects: ProjectsList = {
-    titles: ["Rotate Translation", "Project Two", "Project Three", "Project Four"],
-    images: ["", "w"],
-    captions: ["c", "x"],
+const projectOne: ProjectsList = {
+    titles: ["Rotate Translation"],
+    images: ["portfolio-site-next/public/headshot.png"],
+    captions: ["Legal translation services"],
     urlLinks: ["d", "y"],
 }
 
@@ -61,7 +61,7 @@ export default function Portfolio() {
                 <div className={'flex justify-center flex-col'}>
 
                     <AboutMe personalInfo={info}/>
-                    <Project projects={exampleProjects}/>
+                    <Project projects={projectOne}/>
                 </div>
 
             </main>

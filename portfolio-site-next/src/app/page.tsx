@@ -1,27 +1,7 @@
 "use client"
 import Link from "next/link";
-import Image from "next/image";
-import logo from './public/eh-high-resolution-logo-transparent.png'
-import {useEffect, useState} from "react";
 
 export default function Home() {
-    const [address, setAddress] = useState<any>(null);
-    useEffect(() => {
-        fetch('http://localhost:3000/api/ip')
-            .then(response => response.json())
-            .then(address => {
-                setAddress(address);
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    }, []);
-    //the object variable makes a string out of the promise result
-    //am currently trying to use regex to split and extract the
-    let object = JSON.stringify(address, null, 2);
-    const testRegex = /\w/g
-
-    const res = object.match(testRegex);
     return (
         <div data-theme="dark">
 
