@@ -41,11 +41,11 @@ export default function ContactForm() {
             className="w-full px-4 py-2 bg-info text-white rounded hover:bg-blue-950 focus:outline-none">{pending ? "Submitting..." : "Submit"}</button>
     }
 
-    useEffect(() => {
-        if (formState.message === "Thanks for reaching out. I'll respond shortly.") {
-            setContactForm({name: "", email: "", message: ""})
-        }
-    }, [formState]);
+    // useEffect(() => {
+    //     if (formState.message === "Thanks for reaching out. I'll respond shortly.") {
+    //         setContactForm({name: "", email: "", message: ""})
+    //     }
+    // }, [formState]);
 
     return (
         <div className={'py-8 lg:py-16 px-4 mx-auto max-w-screen-md'}>
