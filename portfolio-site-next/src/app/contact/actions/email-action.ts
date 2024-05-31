@@ -4,7 +4,7 @@ import {Resend} from "resend";
 import React from "react";
 
 
-const resend = new Resend(`${process.env.RESEND_API_KEY}`);
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 
 export async function sendEmail(prevState: any | undefined, formData: FormData) {
