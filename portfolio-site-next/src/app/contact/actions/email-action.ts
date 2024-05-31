@@ -16,7 +16,7 @@ export async function sendEmail(prevState: any | undefined, formData: FormData) 
 
 
     try {
-        await resend.emails.send({
+        const {data, error} = await resend.emails.send({
             from: 'Acme <onboarding@resend.dev>',
             to: ['eleazarfhernandez@gmail.com'],
             // this is going to be a new field that the user will pass in from the form
