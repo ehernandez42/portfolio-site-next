@@ -2,8 +2,7 @@
 import {EmailTemplate} from "@/components/emailTemplate";
 import {Resend} from "resend";
 import React from "react";
-import {Simulate} from "react-dom/test-utils";
-import error = Simulate.error;
+
 
 const resend = new Resend(`${process.env.RESEND_API_KEY}`);
 
@@ -35,7 +34,7 @@ export async function sendEmail(prevState: any | undefined, formData: FormData) 
         }
 
 
-    } catch {
+    } catch (error) {
         console.error(error);
         return {
             message: "Oops, sorry. Try again at another time?"
