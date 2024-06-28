@@ -31,7 +31,7 @@ const projectOne: ProjectsList = {
     title: 'Rotate Translation',
     image: "/gavel_for_rotate_translation.png",
     caption: "Full Stack web application for users to upload forms and other important information into a legal translation services.",
-    urlLink: "",
+    urlLink: "https://payment-form-rotate-translation.vercel.app/",
     hashTags: ["React", "TypeScript", "Firebase", "Stripe"]
 }
 
@@ -73,7 +73,7 @@ export default function Portfolio() {
                     <AboutMe personalInfo={info}/>
 
                     <h1 className={'text-3xl font-extrabold mb-3 text-center pt-6'}>Projects</h1>
-                    <div className={'lg:flex sm:justify-normal flex-wrap gap-4'}>
+                    <div className={'lg:flex sm:justify-normal justify-center flex-wrap gap-8'}>
                         <Project projects={projectOne}/>
 
                     </div>
