@@ -2,9 +2,9 @@
 import Link from "next/link";
 
 export default function Home() {
+
     return (
         <div data-theme="dark">
-
 
             <main>
                 <div className="py-1 px-1 w-10/12 text-center mx-auto my-24 max-w-screen-xl p-32 lg:py-16 lg:px-12">
@@ -29,6 +29,7 @@ export default function Home() {
                     <Link href={'contact'} className={'btn btn-info'}>
                         Contact Me
                     </Link>
+
                 </div>
             </main>
 

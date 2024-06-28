@@ -16,9 +16,10 @@ export interface Testimonial {
 
 
 export interface ProjectsList {
-    titles: string[];
-    images: string[];
-    captions: string[];
-    urlLinks: string[];
+    title: string;
+    image: string;
+    caption: string;
+    urlLink: string;
+    hashTags: string[];
 }
 

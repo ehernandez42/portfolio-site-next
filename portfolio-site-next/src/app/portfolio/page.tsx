@@ -1,7 +1,8 @@
 'use client'
 import {PersonalInfo, ProjectsList, Testimonial} from "@/types/types";
 import AboutMe from "@/components/AboutMe";
-import Project from "@/components/ProjectsList";
+import Project from "@/components/Project";
+import Link from "next/link";
 
 const selmaQuote: Testimonial = {
     quote: "Eleazar knows how to treat his clients - he walked me through the project " +
@@ -17,19 +18,21 @@ const selmaQuote: Testimonial = {
 const info: PersonalInfo = {
     name: "Eleazar Hernandez",
     profession: "Software Engineer",
-    background: "I am a highly analytical software engineer looking to break into the tech industry " +
-        "and produce quality, consistent solutions.",
-    experience: ["Freelance Developer(2022-)", "Software Engineering Intern @ nextgen(Sep. 2023-Dec.2023)"],
-    skills: ["React/Next.js", "TypeScript", "Tailwind.css", "Python", "Git", "PostgreSQL"],
-    passions: ['Infrastructure Engineering', 'Full-Stack Software Development', 'Data', "Backend"],
+    background: "I have experience in the legal and retail" +
+        " industries. I am targeting entry level, new grad, and mid-level software roles as well as " +
+        "other roles such as business analyst and technical support.",
+    experience: ["Freelance Developer(2022-)", "Software Engineering Intern @ nextgen(Sep. 2023-Mar.2024)"],
+    skills: ["React/Next.js", "TypeScript", "Tailwind.css", "Python", "Git", "Java/Spring Boot", "PostgreSQL"],
+    passions: ['Full-Stack Software Development', "Backend Engineering"],
     testimonials: [selmaQuote]
 }
 
 const projectOne: ProjectsList = {
-    titles: ["Rotate Translation"],
-    images: ["portfolio-site-next/public/headshot.png"],
-    captions: ["Legal translation services"],
-    urlLinks: ["d", "y"],
+    title: 'Rotate Translation',
+    image: "/gavel_for_rotate_translation.png",
+    caption: "Full Stack web application for users to upload forms and other important information into a legal translation services.",
+    urlLink: "",
+    hashTags: ["React", "TypeScript", "Firebase", "Stripe"]
 }
 
 
@@ -41,7 +44,14 @@ export default function Portfolio() {
                     <a className="btn btn-ghost text-xl" href={'/'}>
                         Start
                     </a>
+                    <Link href={'/Eleazar_Hernandez_Resume.pdf'}>
+                        <div className={'btn btn-ghost text-xl navbar-center'}>
+                            Resume
+                        </div>
+
+                    </Link>
                     <div className="dropdown mx-16">
+
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                             More
                         </div>
@@ -61,7 +71,13 @@ export default function Portfolio() {
                 <div className={'flex justify-center flex-col'}>
 
                     <AboutMe personalInfo={info}/>
-                    <Project projects={projectOne}/>
+
+                    <h1 className={'text-3xl font-extrabold mb-3 text-center pt-6'}>Projects</h1>
+                    <div className={'lg:flex sm:justify-normal flex-wrap gap-4'}>
+                        <Project projects={projectOne}/>
+
+                    </div>
+
                 </div>
 
             </main>
