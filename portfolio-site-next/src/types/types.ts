@@ -4,8 +4,6 @@ export interface PersonalInfo {
     background: string;
     experience: string[];
     skills: string[];
-    passions: string[];
-    testimonials: Testimonial[];
 }
 
 export interface Testimonial {

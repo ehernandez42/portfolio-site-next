@@ -1,34 +1,52 @@
 "use client"
-import Link from "next/link";
+import NavBar from "@/components/NavBar";
+import Contact from "@/app/contact/page";
+import AboutMe from "@/components/AboutMe";
+import {PersonalInfo} from "@/types/types";
+import Image from "next/image";
+import Icons from "@/components/icons";
 
 export default function Home() {
-
+    const info: PersonalInfo = {
+        name: "Eleazar Hernandez",
+        profession: "Software Engineer",
+        background: "I have experience in the legal and retail" +
+            " industries. I am targeting entry level, new grad, and mid-level software roles as well as " +
+            "other roles such as business analyst and technical support.",
+        experience: ["Freelance Developer(2022-)", "Software Engineering Intern @ nextgen(Sep. 2023-Mar.2024)"],
+        skills: ["React", "Next.js", "HTML/CSS/JS", "TypeScript", "Tailwind.css", "Python", "Git", "Java/Spring Boot", "PostgreSQL"],
+    }
     return (
         <div data-theme="dark">
 
             <main>
-                <div className="py-1 px-1 w-10/12 text-center mx-auto my-24 max-w-screen-xl p-32 lg:py-16 lg:px-12">
-                    <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+                <NavBar/>
+                <div className="py-1 px-1 w-10/12 text-center mx-auto my-2 max-w-screen-xl p-32 lg:py-16 lg:px-12">
+                    <h1 id={'About'}  className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
                         Eleazar Hernandez</h1>
-                    <h2 className="mb-4 font-extrabold tracking-tight leading-none text-gray-900 md:text-2xl lg:text-3xl dark:text-white">
+                    <h2 className="mb-4 font-extrabold tracking-tight leading-none text-white md:text-2xl lg:text-3xl">
                         Software Engineer</h2>
-                    <p className="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">
-                        Welcome to my site! Please select from the options below.
-                    </p>
-                    <div
-                        className="flex flex-col mb-8 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-                        <Link href={'portfolio'}
-                              className={'btn btn-info'}>
-                            Developer Portfolio
-                        </Link>
-                        {/*<Link href={'freelance'}*/}
-                        {/*      className={'btn btn-info'}>*/}
-                        {/*    Freelance Services*/}
-                        {/*</Link>*/}
-                    </div>
-                    <Link href={'contact'} className={'btn btn-info'}>
-                        Contact Me
-                    </Link>
+                    <figure className={'flex flex-col mb-10 lg:flex-row mx-16 lg:mx-0'}>
+                        <Image src={'/headshot.png'}
+                               alt={'headshot photo'}
+                               width={300}
+                               height={300}
+                               className={'rounded-full'}/>
+                        <div className={'card-body flex justify-center'}>
+                            <p className={'w-full lg:text-2xl'}>Hello! As a freelance SWE for 2 years now, I have honed my craft
+                            as a passionate problem solver for businesses in many different industries. I am actively looking for
+                            my next Full-Time/Contract role, and am always open to opportunities. </p>
+                            <div className={'ml-9'}>
+                                <Icons />
+                            </div>
+
+                        </div>
+
+                    </figure>
+                    <br/>
+
+                    <AboutMe personalInfo={info}/>
+                    <Contact/>
 
                 </div>
             </main>
