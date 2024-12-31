@@ -10,10 +10,14 @@ export default function Home() {
     const info: PersonalInfo = {
         name: "Eleazar Hernandez",
         profession: "Software Engineer",
-        background: "I have experience in the legal and retail" +
-            " industries. I am targeting entry level, new grad, and mid-level software roles as well as " +
-            "other roles such as business analyst and technical support.",
-        experience: ["Freelance Developer(2022-)", "Software Engineering Intern @ nextgen(Sep. 2023-Mar.2024)"],
+        background: "Software Engineer with 2 years of experience building sleek, modern" +
+            " UI/UX for a wide array of businesses and use cases. ",
+        experience: [
+            "Front End Engineer @ 834 Labs (Nov. 2024 - )",
+            "Founding Engineer @ Hidr (May 2024 - )",
+            "Software Engineer @ Rotate Translation (Jan. 2024 - May 2024)",
+            "Software Engineer Intern @ NextGen IT Staffing (Sept. 2023 - March 2024)"
+        ],
         skills: ["React", "Next.js", "HTML/CSS/JS", "TypeScript", "Tailwind.css", "Python", "Git", "Java/Spring Boot", "PostgreSQL"],
     }
     return (
@@ -27,18 +31,21 @@ export default function Home() {
                     <h2 className="mb-4 text-xl sm:text-2xl font-extrabold tracking-tight leading-tight text-white md:text-2xl lg:text-3xl">
                         Software Engineer</h2>
                     <figure className={'flex flex-col mb-10 lg:flex-row mx-4 sm:mx-8 lg:mx-0'}>
-                        <Image src={'/headshot.png'}
-                               alt={'headshot photo'}
-                               width={300}
-                               height={300}
-                               className={'rounded-full mx-auto lg:mx-0'}/>
-                        <div className={'card-body flex flex-col justify-center mt-4 lg:mt-0 lg:ml-8'}>
-                            <p className={'w-full text-sm sm:text-base lg:text-2xl'}>Hello! As a freelance SWE for 2 years now, I have honed my craft
-                            as a passionate problem solver for businesses in many different industries. I am actively looking for
-                            my next Full-Time/Contract role, and am always open to opportunities. </p>
-                            <div className={'mt-4 lg:ml-9'}>
+                        <div className={'flex flex-col justify-center items-center'}>
+                            <Image src={'/headshot.png'}
+                                   alt={'headshot photo'}
+                                   width={300}
+                                   height={300}
+                                   className={'rounded-full mx-auto lg:mx-0'}/>
+
+                            <div className={'mt-4'}>
                                 <Icons />
                             </div>
+                        </div>
+
+
+                        <div className={'card-body flex flex-col justify-center items-center mt-4 lg:mt-0 lg:ml-8'}>
+                            <p className={'w-full text-sm sm:text-base lg:text-2xl'}>{info.background}</p>
                         </div>
                     </figure>
                     <br/>
