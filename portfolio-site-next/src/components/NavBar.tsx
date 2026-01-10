@@ -34,12 +34,11 @@ export default function NavBar() {
 
     return (
         <div className="navbar sticky top-0 bg-base-100 scroll-smooth">
-            <div className="navbar-start w-full">
-                {/*eleazar hernandez dev logo can go here?*/}
+            <div className="navbar-start w-full flex items-center justify-center">
                 <ul tabIndex={0} className="menu mt-3 z-[1] p-2 lg:flex items-stretch w-full hidden lg:visible">
                     <NavItems/>
                 </ul>
-                <div className="dropdown w-full">
+                <div className="dropdown flex flex-end">
                     <div tabIndex={0} role="button" className="btn btn-ghost flex justify-end lg:hidden ml-auto">
                         More
                     </div>

@@ -10,21 +10,23 @@ export default function Home() {
     const info: PersonalInfo = {
         name: "Eleazar Hernandez",
         profession: "Software Engineer",
-        background: "Software Engineer with 2 years of experience building sleek, modern" +
-            " UI/UX for a wide array of businesses and use cases. ",
+        background: "Software Engineer with 3 years experience building scalable, modern software solutions",
         experience: [
             "Front End Engineer @ 834 Labs (Nov. 2024 - )",
-            "Founding Engineer @ Hidr (May 2024 - )",
+            "Founding Engineer @ Hidr (May 2024 - Oct. 2024)",
             "Software Engineer @ Rotate Translation (Jan. 2024 - May 2024)",
             "Software Engineer Intern @ NextGen IT Staffing (Sept. 2023 - March 2024)"
         ],
-        skills: ["React", "Next.js", "HTML/CSS/JS", "TypeScript", "Tailwind.css", "Python", "Git", "Java/Spring Boot", "PostgreSQL"],
+        skills: ["React(Next.js)", "Node.js", "Python", "C#/.NET","Git", "Java/Spring Boot", "PostgreSQL"],
     }
     return (
         <div data-theme="dark">
 
             <main className={'min-h-screen'}>
-                <NavBar/>
+                <div className="w-fit">
+                   <NavBar/> 
+                </div>
+                
                 <div className="py-1 px-1 w-full sm:w-10/12 text-center mx-auto my-2 max-w-screen-xl p-4 sm:p-8 md:p-16 lg:p-32 lg:py-16 lg:px-12 overflow-x-hidden">
                     <h1 id={'About'}  className="mb-4 text-3xl sm:text-4xl font-extrabold tracking-tight leading-tight text-white md:text-5xl lg:text-6xl">
                         Eleazar Hernandez</h1>
