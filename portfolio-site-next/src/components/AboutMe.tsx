@@ -1,32 +1,43 @@
-import {PersonalInfo} from "@/types/types";
+import { PersonalInfo } from "@/types/types";
 
 interface Props {
-    personalInfo: PersonalInfo;
+  personalInfo: PersonalInfo;
 }
 
+const AboutMe = ({ personalInfo }: Props) => {
+  const { experience, skills } = personalInfo;
 
-const AboutMe = ({personalInfo}: Props) => {
-    const {experience, skills} = personalInfo;
+  return (
+    <div>
+      <h2 className="font-poppins font-bold text-3xl lg:text-4xl mb-8">
+        Work Experience
+      </h2>
+      <div className="flex flex-col gap-3">
+        {experience.map((exp, index) => (
+          <div
+            key={index}
+            className="bg-[#111827] border border-[#1f2937] rounded-xl px-5 py-4 text-sm text-white"
+          >
+            {exp}
+          </div>
+        ))}
+      </div>
 
-    return (
-        <div className={'flex w-full flex-col items-center justify-center'}>
-            <h1 className={'text-3xl font-extrabold mb-4 dark:text-white'}>Work Experience</h1>
-            <ul className={'flex flex-col'}>
-                {experience.map((exp, index) => (
-                    <li className={'kbd kbd-lg p-2 mb-2 tracking-normal'} key={index}>{exp}</li>
-                ))}
-            </ul>
-            <br/>
-            <div className={'align-middle'}>
-                <h3 className={'text-3xl font-extrabold mb-4 dark:text-white'}>Skills</h3>
-                <ul className={'flex flex-col sm:flex-row flex-wrap gap-2'}>
-                    {skills.map((skill, index) => (
-                        <li className={'p-2 tracking-normal  kbd kbd-lg mb-4 '} key={index}>{skill}</li>
-                    ))}
-                </ul>
-            </div>
-        </div>
-    );
+      <h3 className="font-poppins font-bold text-3xl lg:text-4xl mt-14 mb-8">
+        Skills
+      </h3>
+      <div className="flex flex-wrap gap-3">
+        {skills.map((skill, index) => (
+          <span
+            key={index}
+            className="border border-[#1f2937] rounded-full px-5 py-2 text-sm text-sawad-muted hover:border-sawad-lime hover:text-sawad-lime transition-colors cursor-default"
+          >
+            {skill}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default AboutMe;

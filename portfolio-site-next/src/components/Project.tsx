@@ -1,44 +1,55 @@
-import {ProjectsList} from "@/types/types";
+import { ProjectsList } from "@/types/types";
 import Image from "next/image";
 
-
 interface props {
-    projects: ProjectsList;
+  projects: ProjectsList;
 }
 
-const Project = ({projects}: props) => {
-    const {title, image, caption, urlLink, hashTags} = projects;
+const Project = ({ projects }: props) => {
+  const { title, image, caption, urlLink, hashTags } = projects;
 
-    return (
-        // - a card that shows the name of the company, an image as its background, a little description underneath the title of the company/project
+  return (
+    <div className="bg-[#111827] border border-[#1f2937] rounded-xl overflow-hidden">
+      <Image
+        className="w-full object-cover"
+        src={image}
+        alt={title}
+        width={400}
+        height={200}
+      />
+      <div className="p-6">
+        <h5 className="font-poppins font-bold text-xl text-white mb-2">
+          {title}
+        </h5>
+        <p className="text-sawad-muted text-sm mb-4">{caption}</p>
+        <a
+          href={urlLink}
+          target="_blank"
+          className="inline-flex items-center gap-2 bg-sawad-lime text-black text-sm font-semibold px-5 py-2 rounded-full hover:brightness-110 transition"
+        >
+          View Project
+          <svg
+            className="w-3.5 h-3.5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 14 10"
+          >
+            <path stroke="currentColor" d="M1 5h12m0 0L9 1m4 4L9 9" />
+          </svg>
+        </a>
+      </div>
+      <div className="px-6 pb-4 flex flex-wrap gap-2">
+        {hashTags.map((tag, index) => (
+          <span
+            key={index}
+            className="border border-[#1f2937] rounded-full px-3 py-1 text-xs text-sawad-muted"
+          >
+            #{tag}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+};
 
-        <div
-            className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <Image className="rounded-t-lg" src={image} alt={'Image'} width={400} height={50}/>
-            <div className="p-5">
-                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{title}</h5>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{caption}</p>
-                <a href={urlLink} target={"_blank"}
-                      className="btn btn-info btn-sm inline-flex items-center">
-                    Link
-                    <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
-                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                        <path stroke="currentColor"
-                              d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                    </svg>
-                </a>
-            </div>
-            <div className="px-6 pt-4 pb-2">
-                {hashTags.map((tag, index) => {
-                    return (
-                        <span key={index}
-                            className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                                #{tag}
-                            </span>
-                    )
-                })}
-            </div>
-        </div>
-    )
-}
 export default Project;

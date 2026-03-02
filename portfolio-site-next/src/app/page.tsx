@@ -1,63 +1,70 @@
-"use client"
+"use client";
 import NavBar from "@/components/NavBar";
-import Contact from "@/app/contact/page";
+import StickyProfile from "@/components/StickyProfile";
+import HeroText from "@/components/HeroText";
 import AboutMe from "@/components/AboutMe";
-import {PersonalInfo} from "@/types/types";
-import Image from "next/image";
-import Icons from "@/components/icons";
+import FeaturedWork from "@/components/FeaturedWork";
+import SubstackPosts from "@/components/SubstackPosts";
 import FreelanceServices from "@/components/FreelanceServices";
+import Contact from "@/app/contact/page";
+import FixedSocialIcons from "@/components/FixedSocialIcons";
+import { PersonalInfo } from "@/types/types";
 
 export default function Home() {
-    const info: PersonalInfo = {
-        name: "Eleazar Hernandez",
-        profession: "Software Engineer",
-        background: "Software Engineer with 3 years experience building scalable, modern software solutions",
-        experience: [
-            "Front End Engineer @ 834 Labs (Nov. 2024 - )",
-            "Founding Engineer @ Hidr (May 2024 - Oct. 2024)",
-            "Software Engineer @ Rotate Translation (Jan. 2024 - May 2024)",
-            "Software Engineer Intern @ NextGen IT Staffing (Sept. 2023 - March 2024)"
-        ],
-        skills: ["React(Next.js)", "Node.js", "Python", "C#/.NET","Git", "Java/Spring Boot", "PostgreSQL"],
-    }
-    return (
-        <div>
+  const info: PersonalInfo = {
+    name: "Eleazar Hernandez",
+    profession: "AI-Native Software Engineer",
+    background:
+      "Software Engineer with 3 years experience building scalable, intelligent software solutions",
+    experience: [
+      "Front End Engineer @ 834 Labs (Nov. 2024 - )",
+      "Founding Engineer @ Hidr (May 2024 - Oct. 2024)",
+      "Software Engineer @ Rotate Translation (Jan. 2024 - May 2024)",
+      "Software Engineer Intern @ NextGen IT Staffing (Sept. 2023 - March 2024)",
+    ],
+    skills: [
+      "React(Next.js)",
+      "Node.js",
+      "Python",
+      "C#/.NET",
+      "Git",
+      "Java/Spring Boot",
+      "PostgreSQL",
+    ],
+  };
 
-            <main className={'min-h-screen'}>
-                <NavBar/>
-                
-                <div className="w-full sm:w-10/12 text-center mx-auto my-2 max-w-screen-xl px-4 sm:px-8 md:px-12 lg:px-16 py-4 lg:py-12 overflow-x-hidden">
-                    <h1 id={'About'}  className="mb-4 text-3xl sm:text-4xl font-extrabold tracking-tight leading-tight text-white md:text-5xl lg:text-6xl">
-                        Eleazar Hernandez</h1>
-                    <h2 className="mb-4 text-xl sm:text-2xl font-extrabold tracking-tight leading-tight text-white md:text-2xl lg:text-3xl">
-                        Software Engineer</h2>
-                    <figure className={'flex flex-col mb-10 lg:flex-row mx-4 sm:mx-8 lg:mx-0'}>
-                        <div className={'flex flex-col justify-center items-center'}>
-                            <Image src={'/headshot.png'}
-                                   alt={'headshot photo'}
-                                   width={300}
-                                   height={300}
-                                   className={'rounded-full mx-auto lg:mx-0'}/>
+  return (
+    <div className="bg-sawad-bg min-h-screen">
+      <NavBar />
+      <div className="max-w-[1140px] mx-auto px-6 pt-24">
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-[100px]">
+          {/* Left — Sticky Profile */}
+          <div className="lg:w-[350px] lg:shrink-0">
+            <StickyProfile
+              name={info.name}
+              profession={info.profession}
+              background={info.background}
+            />
+          </div>
 
-                            <div className={'mt-4'}>
-                                <Icons />
-                            </div>
-                        </div>
-
-
-                        <div className={'px-4 flex flex-col justify-center items-center mt-4 lg:mt-0 lg:ml-8'}>
-                            <p className={'w-full text-sm sm:text-base lg:text-2xl'}>{info.background}</p>
-                        </div>
-                    </figure>
-                    <br/>
-
-                    <AboutMe personalInfo={info}/>
-                    <FreelanceServices/>
-                    <Contact/>
-
-                </div>
-            </main>
-
+          {/* Right — Scrollable Content */}
+          <div className="flex-1 flex flex-col gap-[60px] lg:gap-[60px]">
+            <HeroText />
+            <FeaturedWork />
+            <SubstackPosts />
+            <div id="About">
+              <AboutMe personalInfo={info} />
+            </div>
+            
+            <FreelanceServices />
+            <Contact />
+          </div>
         </div>
-    );
+      </div>
+      <FixedSocialIcons />
+      <footer className="border-t border-[#1f2937] mt-20 py-8 text-center text-sawad-muted text-sm">
+        &copy; 2026 Eleazar Hernandez
+      </footer>
+    </div>
+  );
 }
