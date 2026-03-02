@@ -1,6 +1,6 @@
 "use client";
 import { useFormStatus, useFormState } from "react-dom";
-import React, { ChangeEvent, useState, useEffect } from "react";
+import { ChangeEvent, useState, useEffect } from "react";
 import { sendEmail } from "@/app/contact/actions/email-action";
 
 export interface contactProps {

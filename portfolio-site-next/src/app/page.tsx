@@ -17,10 +17,8 @@ export default function Home() {
     background:
       "Software Engineer with 3 years experience building scalable, intelligent software solutions",
     experience: [
-      "Front End Engineer @ 834 Labs (Nov. 2024 - )",
-      "Founding Engineer @ Hidr (May 2024 - Oct. 2024)",
-      "Software Engineer @ Rotate Translation (Jan. 2024 - May 2024)",
-      "Software Engineer Intern @ NextGen IT Staffing (Sept. 2023 - March 2024)",
+      "Co-founder @ Innogev",
+      "Full-stack Engineer @ 834 Labs (Nov. 2024 - )"
     ],
     skills: [
       "React(Next.js)",

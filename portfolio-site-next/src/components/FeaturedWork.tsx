@@ -8,31 +8,23 @@ interface WorkItem {
   color: "cyan" | "blue";
 }
 
-// TODO: Update these entries with your actual work details and links
 const works: WorkItem[] = [
+  //need to add the weekly friends list
   {
     role: "Software Engineer",
     company: "Rotate Translation",
     description:
       "Full-stack web application for uploading legal translation forms with Stripe payment integration.",
     link: "https://payment-form-rotate-translation.vercel.app/",
-    color: "blue",
+    color: "blue"
   },
   {
-    role: "Founding Engineer",
-    company: "Hidr",
+    role: "Software Engineer",
+    company: "Rotate Translation",
     description:
-      "Led zero-to-one product development, architecting the full stack from auth to deployment.",
-    link: "#",
-    color: "blue",
-  },
-  {
-    role: "Software Engineer Intern",
-    company: "NextGen IT Staffing",
-    description:
-      "Contributed to internal tools and learned enterprise development practices in a professional setting.",
-    link: "#",
-    color: "blue",
+      "Full-stack web application for uploading legal translation forms with Stripe payment integration.",
+    link: "https://payment-form-rotate-translation.vercel.app/",
+    color: "blue"
   }
 ];
 
@@ -46,11 +38,10 @@ export default function FeaturedWork() {
         {works.map((item, i) => (
           <div
             key={i}
-            className={`rounded-[10px] p-8 min-h-[280px] flex flex-col justify-between hover:scale-[1.02] transition-transform ${
-              item.color === "cyan"
+            className={`rounded-[10px] p-8 min-h-[280px] flex flex-col justify-between hover:scale-[1.02] transition-transform ${item.color === "cyan"
                 ? "bg-sawad-lime text-white"
                 : "bg-sawad-orange text-white"
-            }`}
+              }`}
           >
             <div>
               <p className="text-sm font-semibold opacity-70 mb-1">
