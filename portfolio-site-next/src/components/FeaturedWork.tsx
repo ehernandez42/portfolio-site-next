@@ -11,12 +11,12 @@ interface WorkItem {
 const works: WorkItem[] = [
   //need to add the weekly friends list
   {
-    role: "Software Engineer",
-    company: "Rotate Translation",
+    role: "Founder",
+    company: "Weekly Friends List",
     description:
-      "Full-stack web application for uploading legal translation forms with Stripe payment integration.",
-    link: "https://payment-form-rotate-translation.vercel.app/",
-    color: "blue"
+      "Full-stack solution for friends wanting to connect with others through personalized events sent over email.",
+    link: "https://weekly-friends-list.vercel.app/",
+    color: "cyan"
   },
   {
     role: "Software Engineer",

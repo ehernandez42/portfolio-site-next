@@ -17,7 +17,7 @@ export default function Home() {
     background:
       "Software Engineer with 3 years experience building scalable, intelligent software solutions",
     experience: [
-      "Co-founder @ Innogev",
+      "Co-founder @ Innogev (Dec. 2025 - )",
       "Full-stack Engineer @ 834 Labs (Nov. 2024 - )"
     ],
     skills: [
