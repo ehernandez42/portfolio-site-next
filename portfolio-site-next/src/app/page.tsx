@@ -24,9 +24,7 @@ export default function Home() {
         <div>
 
             <main className={'min-h-screen'}>
-                <div className="w-fit">
-                   <NavBar/> 
-                </div>
+                <NavBar/>
                 
                 <div className="w-full sm:w-10/12 text-center mx-auto my-2 max-w-screen-xl px-4 sm:px-8 md:px-12 lg:px-16 py-4 lg:py-12 overflow-x-hidden">
                     <h1 id={'About'}  className="mb-4 text-3xl sm:text-4xl font-extrabold tracking-tight leading-tight text-white md:text-5xl lg:text-6xl">
