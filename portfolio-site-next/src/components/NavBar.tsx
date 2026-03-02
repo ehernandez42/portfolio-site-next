@@ -7,6 +7,7 @@ export function NavItems() {
         <div>
             <ul className={'lg:flex lg:flex-row'}>
                 <li><a href={"#About"}>About</a></li>
+                <li><a href={"#Services"}>Services</a></li>
                 <li><a href={'#Contact'}>Contact Me</a></li>
                 <li><Link target={'_blank'} href={'https://github.com/ehernandez42'}>
                     Projects

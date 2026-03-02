@@ -19,7 +19,7 @@ const Project = ({projects}: props) => {
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{title}</h5>
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{caption}</p>
                 <a href={urlLink} target={"_blank"}
-                      className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-cyan-500 focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-blue-800">
+                      className="btn btn-info btn-sm inline-flex items-center">
                     Link
                     <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">

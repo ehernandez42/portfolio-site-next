@@ -38,7 +38,7 @@ export default function ContactForm() {
     function Submit() {
         const {pending} = useFormStatus();
         return <button
-            className="w-full px-4 py-2 bg-info text-white rounded hover:bg-blue-950 focus:outline-none">{pending ? "Submitting..." : "Submit"}</button>
+            className="btn btn-info w-full">{pending ? "Submitting..." : "Submit"}</button>
     }
 
     useEffect(() => {

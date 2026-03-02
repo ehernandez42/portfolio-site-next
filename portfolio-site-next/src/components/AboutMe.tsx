@@ -19,7 +19,7 @@ const AboutMe = ({personalInfo}: Props) => {
             <br/>
             <div className={'align-middle'}>
                 <h3 className={'text-3xl font-extrabold mb-4 dark:text-white'}>Skills</h3>
-                <ul className={'flex space-x-2 flex-col sm:flex-row md:overflow-scroll'}>
+                <ul className={'flex flex-col sm:flex-row flex-wrap gap-2'}>
                     {skills.map((skill, index) => (
                         <li className={'p-2 tracking-normal  kbd kbd-lg mb-4 '} key={index}>{skill}</li>
                     ))}

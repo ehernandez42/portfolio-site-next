@@ -26,7 +26,7 @@ const projectOne: ProjectsList = {
 
 export default function Portfolio() {
     return (
-        <div data-theme="dark">
+        <div>
 
             <main>
                 <div className={'flex justify-center flex-col'}>
