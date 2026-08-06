@@ -1,68 +1,27 @@
-"use client";
+import Image from "next/image";
 import NavBar from "@/components/NavBar";
-import StickyProfile from "@/components/StickyProfile";
-import HeroText from "@/components/HeroText";
-import AboutMe from "@/components/AboutMe";
 import FeaturedWork from "@/components/FeaturedWork";
-import SubstackPosts from "@/components/SubstackPosts";
+import AboutMe from "@/components/AboutMe";
 import FreelanceServices from "@/components/FreelanceServices";
-import Contact from "@/app/contact/page";
-import FixedSocialIcons from "@/components/FixedSocialIcons";
-import { PersonalInfo } from "@/types/types";
+import ContactForm from "@/components/ContactForm";
+
+const info = {
+  name: "Eleazar Hernandez", profession: "AI-Native Software Engineer", background: "",
+  experience: ["Co-founder @ Innogev (Dec. 2025 – present)", "Full-stack Engineer @ 834 Labs (Nov. 2024 – present)"],
+  skills: ["React / Next.js", "Node.js", "Python", "C# / .NET", "Java / Spring Boot", "PostgreSQL", "Git"],
+};
 
 export default function Home() {
-  const info: PersonalInfo = {
-    name: "Eleazar Hernandez",
-    profession: "AI-Native Software Engineer",
-    background:
-      "Software Engineer with 3 years experience building scalable, intelligent software solutions",
-    experience: [
-      "Co-founder @ Innogev (Dec. 2025 - )",
-      "Full-stack Engineer @ 834 Labs (Nov. 2024 - )"
-    ],
-    skills: [
-      "React(Next.js)",
-      "Node.js",
-      "Python",
-      "C#/.NET",
-      "Git",
-      "Java/Spring Boot",
-      "PostgreSQL",
-    ],
-  };
-
-  return (
-    <div className="bg-sawad-bg min-h-screen">
-      <NavBar />
-      <div className="max-w-[1140px] mx-auto px-6 pt-24">
-        <div className="flex flex-col lg:flex-row gap-10 lg:gap-[100px]">
-          {/* Left — Sticky Profile */}
-          <div className="lg:w-[350px] lg:shrink-0">
-            <StickyProfile
-              name={info.name}
-              profession={info.profession}
-              background={info.background}
-            />
-          </div>
-
-          {/* Right — Scrollable Content */}
-          <div className="flex-1 flex flex-col gap-[60px] lg:gap-[60px]">
-            <HeroText />
-            <FeaturedWork />
-            <SubstackPosts />
-            <div id="About">
-              <AboutMe personalInfo={info} />
-            </div>
-            
-            <FreelanceServices />
-            <Contact />
-          </div>
-        </div>
-      </div>
-      <FixedSocialIcons />
-      <footer className="border-t border-[#1f2937] mt-20 py-8 text-center text-sawad-muted text-sm">
-        &copy; 2026 Eleazar Hernandez
-      </footer>
-    </div>
-  );
+  return <main id="top" className="atlas-shell">
+    <NavBar />
+    <section className="atlas-hero" aria-labelledby="hero-title">
+      <div className="atlas-hero-copy"><p className="atlas-location">Eleazar Hernandez · building from curiosity</p><h1 id="hero-title">Software systems,<br /><i>made tangible.</i></h1><p className="atlas-lede">I build scalable software and AI-powered applications with strong architecture, clear thinking, and a willingness to get my hands dirty.</p><div className="atlas-hero-actions"><a href="#work" className="atlas-primary-link">Explore selected projects <span aria-hidden="true">↓</span></a><a href="#contact" className="atlas-text-link">Discuss a role or project <span aria-hidden="true">↘</span></a></div></div>
+      <aside className="atlas-profile"><div className="atlas-photo"><Image src="/headshot.png" alt="Eleazar Hernandez" width={1066} height={1066} priority /></div><div><p>{info.profession}</p><a href="https://github.com/ehernandez42" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://linkedin.com/in/eleazarfhernandez" target="_blank" rel="noreferrer">LinkedIn ↗</a></div></aside>
+    </section>
+    <FeaturedWork />
+    <AboutMe personalInfo={info} />
+    <FreelanceServices />
+    <section className="atlas-contact" id="contact"><div><p>Contact</p><h2>A good build starts with a real question.</h2><p>Have a role, product, or problem worth discussing? Send the outline.</p></div><ContactForm /></section>
+    <footer>© 2026 Eleazar Hernandez <a href="https://kickedrocks.substack.com" target="_blank" rel="noreferrer">Writing ↗</a></footer>
+  </main>;
 }

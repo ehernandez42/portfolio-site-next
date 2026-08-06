@@ -1,43 +1,32 @@
-"use server"
-import {EmailTemplate} from "@/components/emailTemplate";
-import {Resend} from "resend";
-import React from "react";
+"use server";
 
+import { EmailTemplate } from "@/components/emailTemplate";
+import { Resend } from "resend";
+import React from "react";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+export async function sendEmail(_prevState: unknown, formData: FormData) {
+  const fields = {
+    name: String(formData.get("name") || ""),
+    email: String(formData.get("email") || ""),
+    company: String(formData.get("company") || ""),
+    projectType: String(formData.get("projectType") || ""),
+    timeline: String(formData.get("timeline") || ""),
+    message: String(formData.get("message") || ""),
+  };
 
-export async function sendEmail(prevState: any | undefined, formData: FormData) {
-
-    const fields = {
-        name: formData.get("name") as string,
-        email: formData.get("email") as string,
-        message: formData.get("message") as string
-    }
-
-
-    try {
-        const {data, error} = await resend.emails.send({
-            from: 'Acme <onboarding@resend.dev>',
-            to: ['eleazarfhernandez@gmail.com'],
-            // this is going to be a new field that the user will pass in from the form
-            subject: `New message from ${fields.name}`,
-            react: EmailTemplate(fields) as React.ReactElement,
-        });
-
-        if (error) {
-            console.error(error);
-        }
-        console.log(data)
-        return {
-            message: "Thanks for reaching out. I'll respond shortly.",
-        }
-
-
-    } catch (error) {
-        console.error(error);
-        return {
-            message: "Oops, sorry. Try again at another time?"
-        }
-    }
+  try {
+    const { error } = await resend.emails.send({
+      from: "Acme <onboarding@resend.dev>",
+      to: ["eleazarfhernandez@gmail.com"],
+      subject: `Project inquiry from ${fields.name}`,
+      react: EmailTemplate(fields) as React.ReactElement,
+    });
+    if (error) throw error;
+    return { status: "success", message: "Thanks — your inquiry is on its way. I’ll reply by email." };
+  } catch (error) {
+    console.error(error);
+    return { status: "error", message: "Your inquiry didn’t send. Please try again, or reach out through LinkedIn." };
+  }
 }

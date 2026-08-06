@@ -1,69 +1,41 @@
-import Link from "next/link";
+"use client";
 
-interface WorkItem {
-  role: string;
-  company: string;
-  description: string;
-  link: string;
-  color: "cyan" | "blue";
-}
+import { useState } from "react";
 
-const works: WorkItem[] = [
-  //need to add the weekly friends list
+const work = [
   {
-    role: "Founder",
-    company: "Weekly Friends List",
-    description:
-      "Full-stack solution for friends wanting to connect with others through personalized events sent over email.",
-    link: "https://weekly-friends-list.vercel.app/",
-    color: "cyan"
+    id: "01", role: "Founder", company: "Weekly Friends List", tone: "mint",
+    description: "A full-stack event connection service that turns personalized invitations into a repeatable weekly ritual.",
+    systems: ["Email workflows", "Event matching", "Full-stack build"],
+    link: "https://weeklyfriendslist.com/",
   },
   {
-    role: "Software Engineer",
-    company: "Rotate Translation",
-    description:
-      "Full-stack web application for uploading legal translation forms with Stripe payment integration.",
+    id: "02", role: "Software Engineer", company: "Rotate Translation", tone: "coral",
+    description: "A legal-translation workflow for uploading critical documents and completing secure payments.",
+    systems: ["React + TypeScript", "Firebase", "Stripe"],
     link: "https://payment-form-rotate-translation.vercel.app/",
-    color: "blue"
-  }
+  },
 ];
 
 export default function FeaturedWork() {
+  const [active, setActive] = useState(0);
   return (
-    <section>
-      <h2 className="font-poppins font-bold text-3xl lg:text-4xl mb-8">
-        Featured Work
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {works.map((item, i) => (
-          <div
-            key={i}
-            className={`rounded-[10px] p-8 min-h-[280px] flex flex-col justify-between hover:scale-[1.02] transition-transform ${item.color === "cyan"
-                ? "bg-sawad-lime text-white"
-                : "bg-sawad-orange text-white"
-              }`}
-          >
-            <div>
-              <p className="text-sm font-semibold opacity-70 mb-1">
-                {item.role}
-              </p>
-              <h3 className="font-poppins font-bold text-2xl mb-3">
-                {item.company}
-              </h3>
-              <p className="text-sm leading-relaxed opacity-80">
-                {item.description}
-              </p>
-            </div>
-            {item.link !== "#" && (
-              <Link
-                href={item.link}
-                target="_blank"
-                className="mt-6 inline-flex items-center gap-1 text-sm font-semibold underline underline-offset-4 opacity-80 hover:opacity-100 transition"
-              >
-                View Project &rarr;
-              </Link>
-            )}
-          </div>
+    <section className="atlas-work" id="work" aria-labelledby="work-title">
+      <div className="atlas-work-intro">
+        <p>Selected systems</p>
+        <h2 id="work-title">Work that holds up under inspection.</h2>
+        <span>Hover or focus a project to open its field notes.</span>
+      </div>
+      <div className="atlas-project-list">
+        {work.map((item, index) => (
+          <article key={item.company} className={`atlas-project ${item.tone} ${active === index ? "is-active" : ""}`} onMouseEnter={() => setActive(index)} onFocus={() => setActive(index)}>
+            <a href={item.link} target="_blank" rel="noreferrer" className="atlas-project-link" aria-label={`Open ${item.company} project`}>
+              <span className="atlas-project-number">{item.id}</span>
+              <div><p>{item.role}</p><h3>{item.company}</h3></div>
+              <span className="atlas-arrow" aria-hidden="true">↗</span>
+              <div className="atlas-project-details"><p>{item.description}</p><ul>{item.systems.map((system) => <li key={system}>{system}</li>)}</ul></div>
+            </a>
+          </article>
         ))}
       </div>
     </section>

@@ -1,43 +1,13 @@
 import { PersonalInfo } from "@/types/types";
 
-interface Props {
-  personalInfo: PersonalInfo;
-}
-
-const AboutMe = ({ personalInfo }: Props) => {
-  const { experience, skills } = personalInfo;
-
+export default function AboutMe({ personalInfo }: { personalInfo: PersonalInfo }) {
   return (
-    <div>
-      <h2 className="font-poppins font-bold text-3xl lg:text-4xl mb-8">
-        Work Experience
-      </h2>
-      <div className="flex flex-col gap-3">
-        {experience.map((exp, index) => (
-          <div
-            key={index}
-            className="bg-[#111827] border border-[#1f2937] rounded-xl px-5 py-4 text-sm text-white"
-          >
-            {exp}
-          </div>
-        ))}
+    <section className="atlas-background" id="background" aria-labelledby="background-title">
+      <div><p>Background</p><h2 id="background-title">A broad practice, built by getting close to the work.</h2></div>
+      <div className="atlas-background-content">
+        <div><h3>Experience</h3>{personalInfo.experience.map((item) => <p className="atlas-entry" key={item}>{item}</p>)}</div>
+        <div><h3>Tools I return to</h3><ul className="atlas-skills">{personalInfo.skills.map((skill) => <li key={skill}>{skill}</li>)}</ul></div>
       </div>
-
-      <h3 className="font-poppins font-bold text-3xl lg:text-4xl mt-14 mb-8">
-        Skills
-      </h3>
-      <div className="flex flex-wrap gap-3">
-        {skills.map((skill, index) => (
-          <span
-            key={index}
-            className="border border-[#1f2937] rounded-full px-5 py-2 text-sm text-sawad-muted hover:border-sawad-lime hover:text-sawad-lime transition-colors cursor-default"
-          >
-            {skill}
-          </span>
-        ))}
-      </div>
-    </div>
+    </section>
   );
-};
-
-export default AboutMe;
+}

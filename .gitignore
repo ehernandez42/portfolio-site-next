@@ -1,0 +1,5 @@
+# Local Pi/Impeccable tooling and ephemeral decision-session output
+.pi/
+.impeccable/questions/
+.impeccable/direction-options.json
+.impeccable/home-surface-brief.md
