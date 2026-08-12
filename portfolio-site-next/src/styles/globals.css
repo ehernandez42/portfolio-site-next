@@ -273,6 +273,7 @@ h1 i {
 }
 
 .atlas-work,
+.atlas-writing,
 .atlas-background,
 .atlas-services,
 .atlas-contact {
@@ -413,6 +414,122 @@ h1 i {
     transform: translateY(0);
     padding-top: 25px
 }
+
+.atlas-writing {
+    padding: 115px 0;
+    border-top: 1px solid var(--line);
+}
+
+.atlas-writing-intro {
+    display: grid;
+    grid-template-columns: .75fr 1.4fr .7fr;
+    gap: 30px;
+    align-items: baseline;
+    padding-bottom: 28px;
+}
+
+.atlas-writing-intro > p {
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.atlas-writing h2 {
+    font-size: clamp(2.3rem, 4.3vw, 4.6rem);
+    letter-spacing: -.065em;
+    line-height: .94;
+    margin: 0;
+}
+
+.atlas-writing-intro a {
+    justify-self: start;
+    color: var(--ink);
+    font-size: .8rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 6px;
+}
+
+.atlas-post-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--line);
+}
+
+.atlas-post {
+    min-width: 0;
+    border-right: 1px solid var(--line);
+}
+
+.atlas-post:last-child { border-right: 0; }
+
+.atlas-post > a {
+    display: block;
+    height: 100%;
+    text-decoration: none;
+    transition: background .25s ease;
+}
+
+.atlas-post > a:hover { background: var(--mint); }
+
+.atlas-post-image {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+}
+
+.atlas-post-image img { transition: transform .35s ease; }
+.atlas-post > a:hover .atlas-post-image img { transform: scale(1.04); }
+
+.atlas-post-content { padding: 22px; }
+
+.atlas-post time {
+    display: block;
+    margin-bottom: 35px;
+    color: var(--ink-soft);
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.atlas-post h3 {
+    font-size: 1.45rem;
+    letter-spacing: -.05em;
+    line-height: 1.05;
+    margin-bottom: 14px;
+}
+
+.atlas-post p {
+    display: -webkit-box;
+    margin-bottom: 24px;
+    color: var(--ink-soft);
+    font-size: .85rem;
+    line-height: 1.55;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+.atlas-post-read { font-size: .75rem; font-weight: 700; }
+.atlas-post-read b { color: var(--coral); font-size: 1rem; }
+
+.atlas-post-more {
+    display: block;
+    margin: 28px auto 0;
+    border: 1px solid var(--ink);
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+    font: 700 .78rem var(--font-inter), sans-serif;
+    padding: 13px 18px;
+}
+
+.atlas-post-more:hover { background: var(--ink); color: var(--paper); }
 
 .atlas-background {
     padding: 115px 0;
@@ -767,6 +884,7 @@ footer a {
     }
 
     .atlas-work,
+    .atlas-writing,
     .atlas-background,
     .atlas-services,
     .atlas-contact {
@@ -787,9 +905,38 @@ footer a {
         flex-direction: column
     }
 
-    .atlas-work-intro {
+    .atlas-work-intro,
+    .atlas-writing-intro {
         display: block
     }
+
+    .atlas-work-intro h2,
+    .atlas-writing h2 {
+        margin-bottom: 18px
+    }
+
+    .atlas-writing-intro > p {
+        margin-bottom: 18px
+    }
+
+    .atlas-writing-intro a {
+        display: inline-block;
+        margin-top: 4px
+    }
+
+    .atlas-post-list {
+        grid-template-columns: 1fr;
+        margin-top: 28px;
+    }
+
+    .atlas-post {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+    }
+
+    .atlas-post-content { padding: 20px 0 25px; }
+    .atlas-post time { margin-bottom: 18px; }
+    .atlas-post-more { display: none; }
 
     .atlas-work-intro h2 {
         margin-bottom: 18px

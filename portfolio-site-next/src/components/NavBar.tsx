@@ -6,6 +6,7 @@ export default function NavBar() {
   const [open, setOpen] = useState(false);
   const links = [
     ["Work", "#work"],
+    ["Writing", "#writing"],
     ["Background", "#background"],
     ["Services", "#services"],
     ["Contact", "#contact"],

@@ -9,72 +9,55 @@ export default function SubstackPosts() {
   const [visibleCount, setVisibleCount] = useState(3);
 
   useEffect(() => {
+    const mobileQuery = window.matchMedia("(max-width: 760px)");
+    const updateVisibleCount = () => setVisibleCount(mobileQuery.matches ? 1 : 3);
+    updateVisibleCount();
+    mobileQuery.addEventListener("change", updateVisibleCount);
+
     fetch("/api/substack")
-      .then((res) => res.json())
-      .then((data) => setPosts(data));
+      .then((res) => (res.ok ? res.json() : []))
+      .then((data: SubstackPost[]) => setPosts(data))
+      .catch(() => setPosts([]));
+
+    return () => mobileQuery.removeEventListener("change", updateVisibleCount);
   }, []);
+
+  if (posts.length === 0) return null;
 
   const visiblePosts = posts.slice(0, visibleCount);
   const hasMore = visibleCount < posts.length;
 
-  if (posts.length === 0) return null;
-
   return (
-    <section>
-      <h2 className="font-poppins font-bold text-3xl lg:text-4xl mb-8 text-white">
-        Blog Posts
-      </h2>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <section className="atlas-writing" id="writing" aria-labelledby="writing-title">
+      <div className="atlas-writing-intro">
+        <p>From the notebook</p>
+        <h2 id="writing-title">Writings</h2>
+        <a href="https://kickedrocks.substack.com" target="_blank" rel="noreferrer">
+          Visit Substack <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+      <div className="atlas-post-list">
         {visiblePosts.map((post) => (
-          <a
-            key={post.link}
-            href={post.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-[#111827] border border-[#1f2937] rounded-xl overflow-hidden hover:border-sawad-lime transition-colors"
-          >
-            {post.image && (
-              <div className="relative w-full aspect-video">
-                <Image
-                  src={post.image}
-                  alt={post.title}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            )}
-            <div className="p-4 flex flex-col gap-2">
-              <h3 className="font-poppins font-bold text-lg text-white leading-tight">
-                {post.title}
-              </h3>
-              <time className="text-sawad-muted text-xs">
-                {new Date(post.pubDate).toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "short",
-                  day: "numeric",
-                })}
-              </time>
-              {post.description && (
-                <p className="text-sawad-muted text-sm line-clamp-3">
-                  {post.description}
-                </p>
+          <article key={post.link} className="atlas-post">
+            <a href={post.link} target="_blank" rel="noreferrer">
+              {post.image && (
+                <div className="atlas-post-image">
+                  <Image src={post.image} alt="" fill sizes="(max-width: 760px) 100vw, 33vw" className="object-cover" />
+                </div>
               )}
-            </div>
-          </a>
+              <div className="atlas-post-content">
+                <time dateTime={post.pubDate}>
+                  {new Date(post.pubDate).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}
+                </time>
+                <h3>{post.title}</h3>
+                {post.description && <p>{post.description}</p>}
+                <span className="atlas-post-read">Read article <b aria-hidden="true">↗</b></span>
+              </div>
+            </a>
+          </article>
         ))}
       </div>
-
-      {hasMore && (
-        <div className="mt-6 text-center">
-          <button
-            onClick={() => setVisibleCount((c) => c + 10)}
-            className="px-6 py-2 border border-sawad-lime text-sawad-lime rounded-lg hover:bg-sawad-lime hover:text-black transition-colors font-poppins font-medium"
-          >
-            Show More
-          </button>
-        </div>
-      )}
+      {hasMore && <button className="atlas-post-more" onClick={() => setVisibleCount((count) => count + 9)}>Show more writing</button>}
     </section>
   );
 }

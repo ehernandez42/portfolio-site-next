@@ -3,6 +3,7 @@ import NavBar from "@/components/NavBar";
 import FeaturedWork from "@/components/FeaturedWork";
 import AboutMe from "@/components/AboutMe";
 import FreelanceServices from "@/components/FreelanceServices";
+import SubstackPosts from "@/components/SubstackPosts";
 import ContactForm from "@/components/ContactForm";
 
 const info = {
@@ -19,6 +20,7 @@ export default function Home() {
       <aside className="atlas-profile"><div className="atlas-photo"><Image src="/headshot.png" alt="Eleazar Hernandez" width={1066} height={1066} priority /></div><div><p>{info.profession}</p><a href="https://github.com/ehernandez42" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://linkedin.com/in/eleazarfhernandez" target="_blank" rel="noreferrer">LinkedIn ↗</a></div></aside>
     </section>
     <FeaturedWork />
+    <SubstackPosts />
     <AboutMe personalInfo={info} />
     <FreelanceServices />
     <section className="atlas-contact" id="contact"><div><p>Contact</p><h2>A good build starts with a real question.</h2><p>Have a role, product, or problem worth discussing? Send the outline.</p></div><ContactForm /></section>

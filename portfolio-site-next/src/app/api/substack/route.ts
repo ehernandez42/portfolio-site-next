@@ -2,6 +2,10 @@ import { getSubstackPosts } from "@/lib/substack";
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  const posts = await getSubstackPosts();
-  return NextResponse.json(posts);
+  try {
+    const posts = await getSubstackPosts();
+    return NextResponse.json(posts);
+  } catch {
+    return NextResponse.json([]);
+  }
 }
