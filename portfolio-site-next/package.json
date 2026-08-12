@@ -9,7 +9,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "daisyui": "^5.7.16",
+    "daisyui": "^4.12.24",
     "fast-xml-parser": "^5.10.1",
     "next": "^16.3.0",
     "react": "^19.2.8",
@@ -21,10 +21,10 @@
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.4",
     "autoprefixer": "^10.5.4",
-    "eslint": "^10.8.1",
+    "eslint": "^9.39.4",
     "eslint-config-next": "^16.3.0",
     "postcss": ">=8.5.26",
-    "tailwindcss": "^4.3.3",
-    "typescript": "^7"
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.9.3"
   }
 }
