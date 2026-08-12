@@ -1,7 +1,7 @@
 "use client";
 
-import { useFormState, useFormStatus } from "react-dom";
-import { ChangeEvent, useEffect, useState } from "react";
+import { useFormStatus } from "react-dom";
+import { ChangeEvent, useEffect, useState, useActionState } from "react";
 import { sendEmail } from "@/app/contact/actions/email-action";
 
 const initialState = { message: "", status: "idle", errors: undefined };
@@ -14,7 +14,7 @@ function SubmitButton() {
 
 export default function ContactForm() {
   const [values, setValues] = useState(blank);
-  const [state, action] = useFormState(sendEmail, initialState);
+  const [state, action] = useActionState(sendEmail, initialState);
   useEffect(() => { if (state.status === "success") setValues(blank); }, [state.status]);
   const change = (event: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setValues((old) => ({ ...old, [event.target.name]: event.target.value }));
 

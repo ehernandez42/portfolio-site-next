@@ -7,7 +7,7 @@ import ContactForm from "@/components/ContactForm";
 
 const info = {
   name: "Eleazar Hernandez", profession: "AI-Native Software Engineer", background: "",
-  experience: ["Co-founder @ Innogev (Dec. 2025 – present)", "Full-stack Engineer @ 834 Labs (Nov. 2024 – present)"],
+  experience: ["Full-stack Engineer @ 834 Labs (Nov. 2024 – present)"],
   skills: ["React / Next.js", "Node.js", "Python", "C# / .NET", "Java / Spring Boot", "PostgreSQL", "Git"],
 };
 
